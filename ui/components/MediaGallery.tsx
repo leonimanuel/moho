@@ -44,14 +44,10 @@ export function MediaGallery({ media }: MediaGalleryProps) {
   const gridClass =
     displayableMedia.length === 1
       ? "grid-cols-1"
-      : displayableMedia.length === 2
-        ? "grid-cols-2"
-        : displayableMedia.length === 3
-          ? "grid-cols-2"
-          : "grid-cols-2";
+      : "grid-cols-2";
 
   return (
-    <div className={`grid gap-2 ${gridClass}`}>
+    <div className={`grid gap-1 sm:gap-2 ${gridClass}`}>
       {displayableMedia.map((item, index) => {
         const url = getMediaUrl(item);
         if (!url) return null;
@@ -61,9 +57,9 @@ export function MediaGallery({ media }: MediaGalleryProps) {
         return (
           <div
             key={index}
-            className={`relative overflow-hidden rounded-lg ${
+            className={`relative aspect-video overflow-hidden rounded-md sm:rounded-lg ${
               displayableMedia.length === 3 && index === 0
-                ? "row-span-2"
+                ? "row-span-2 aspect-auto"
                 : ""
             }`}
           >
@@ -72,15 +68,15 @@ export function MediaGallery({ media }: MediaGalleryProps) {
               src={url}
               alt={getMediaAlt(item, index)}
               referrerPolicy="no-referrer"
-              className="h-auto w-full object-cover"
+              className="h-full w-full object-cover"
               loading="lazy"
             />
             {/* Video indicator overlay */}
             {isVideo && (
               <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-                <div className="rounded-full bg-black/60 p-2">
+                <div className="rounded-full bg-black/60 p-1.5 sm:p-2">
                   <svg
-                    className="h-6 w-6 text-white"
+                    className="h-5 w-5 text-white sm:h-6 sm:w-6"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                     aria-hidden="true"

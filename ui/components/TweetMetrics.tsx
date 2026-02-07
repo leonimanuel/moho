@@ -28,7 +28,7 @@ interface MetricItemProps {
 function MetricItem({ icon, count, label }: MetricItemProps) {
   return (
     <div
-      className="flex items-center gap-1 text-sm text-zinc-500 dark:text-zinc-400"
+      className="flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400 sm:text-sm"
       title={`${count.toLocaleString()} ${label}`}
     >
       {icon}
@@ -45,7 +45,7 @@ export function TweetMetrics({
   impressionCount,
 }: TweetMetricsProps) {
   return (
-    <div className="flex flex-wrap gap-4">
+    <div className="flex flex-wrap gap-3 sm:gap-4">
       <MetricItem
         icon={
           <svg

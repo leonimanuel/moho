@@ -54,9 +54,9 @@ export default async function Home({ searchParams }: PageProps) {
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-black">
-      <main className="mx-auto max-w-2xl bg-white dark:bg-zinc-950">
-        <header className="sticky top-0 z-10 border-b border-zinc-200 bg-white/80 px-4 py-3 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-950/80">
-          <h1 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">
+      <main className="mx-auto max-w-2xl bg-white shadow-sm dark:bg-zinc-950 lg:my-4 lg:rounded-lg lg:border lg:border-zinc-200 lg:dark:border-zinc-800">
+        <header className="sticky top-0 z-10 border-b border-zinc-200 bg-white/95 px-3 py-3 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-950/95 sm:px-4 lg:rounded-t-lg">
+          <h1 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 sm:text-xl">
             Tweets
           </h1>
           <p className="text-sm text-zinc-500 dark:text-zinc-400">
@@ -65,20 +65,20 @@ export default async function Home({ searchParams }: PageProps) {
         </header>
 
         {/* Search, Filter, and Sort Controls */}
-        <div className="border-b border-zinc-200 px-4 py-3 dark:border-zinc-800">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div className="border-b border-zinc-200 px-3 py-3 dark:border-zinc-800 sm:px-4">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
             <div className="flex-1">
               <Suspense fallback={null}>
                 <SearchBar defaultValue={search} />
               </Suspense>
             </div>
             <div className="flex gap-2">
-              <div className="flex-1 sm:w-40 sm:flex-none">
+              <div className="min-w-0 flex-1 sm:w-36 sm:flex-none md:w-40">
                 <Suspense fallback={null}>
                   <AuthorFilter authors={authors} selectedAuthor={author} />
                 </Suspense>
               </div>
-              <div className="flex-1 sm:w-40 sm:flex-none">
+              <div className="min-w-0 flex-1 sm:w-36 sm:flex-none md:w-40">
                 <Suspense fallback={null}>
                   <SortSelect sortBy={sortBy} sortOrder={sortOrder} />
                 </Suspense>
@@ -89,8 +89,13 @@ export default async function Home({ searchParams }: PageProps) {
 
         <div className="divide-y divide-zinc-200 dark:divide-zinc-800">
           {tweets.length === 0 ? (
-            <div className="p-8 text-center text-zinc-500 dark:text-zinc-400">
-              No tweets found.
+            <div className="px-4 py-12 text-center text-zinc-500 dark:text-zinc-400 sm:py-16">
+              <p className="text-base sm:text-lg">No tweets found.</p>
+              {search && (
+                <p className="mt-1 text-sm">
+                  Try adjusting your search or filters.
+                </p>
+              )}
             </div>
           ) : (
             tweets.map((tweet) => (
@@ -100,11 +105,13 @@ export default async function Home({ searchParams }: PageProps) {
         </div>
 
         {totalPages > 1 && (
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            currentFilters={currentFilters}
-          />
+          <div className="lg:rounded-b-lg lg:overflow-hidden">
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              currentFilters={currentFilters}
+            />
+          </div>
         )}
       </main>
     </div>

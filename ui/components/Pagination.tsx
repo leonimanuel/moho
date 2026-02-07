@@ -54,32 +54,37 @@ export function Pagination({
 
   return (
     <nav
-      className="flex items-center justify-between border-t border-zinc-200 px-4 py-3 dark:border-zinc-800"
+      className="flex items-center justify-between border-t border-zinc-200 px-3 py-3 dark:border-zinc-800 sm:px-4"
       aria-label="Pagination"
     >
-      <div className="flex flex-1 justify-between sm:justify-start sm:gap-2">
+      <div className="flex flex-1 items-center justify-between gap-2 sm:justify-start">
         {hasPrevious ? (
           <Link
             href={buildPageUrl(currentPage - 1, currentFilters)}
-            className="inline-flex items-center rounded-md border border-zinc-300 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800"
+            className="inline-flex items-center rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 active:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800 sm:px-4"
           >
             Previous
           </Link>
         ) : (
-          <span className="inline-flex items-center rounded-md border border-zinc-200 bg-zinc-100 px-4 py-2 text-sm font-medium text-zinc-400 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-600">
+          <span className="inline-flex items-center rounded-md border border-zinc-200 bg-zinc-100 px-3 py-2 text-sm font-medium text-zinc-400 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-600 sm:px-4">
             Previous
           </span>
         )}
 
+        {/* Mobile page indicator */}
+        <span className="text-sm text-zinc-500 dark:text-zinc-400 sm:hidden">
+          {currentPage} / {totalPages}
+        </span>
+
         {hasNext ? (
           <Link
             href={buildPageUrl(currentPage + 1, currentFilters)}
-            className="inline-flex items-center rounded-md border border-zinc-300 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800"
+            className="inline-flex items-center rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 active:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800 sm:px-4"
           >
             Next
           </Link>
         ) : (
-          <span className="inline-flex items-center rounded-md border border-zinc-200 bg-zinc-100 px-4 py-2 text-sm font-medium text-zinc-400 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-600">
+          <span className="inline-flex items-center rounded-md border border-zinc-200 bg-zinc-100 px-3 py-2 text-sm font-medium text-zinc-400 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-600 sm:px-4">
             Next
           </span>
         )}
