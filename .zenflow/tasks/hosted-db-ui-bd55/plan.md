@@ -94,7 +94,8 @@ Implement the data access layer for fetching tweets and authors.
 - `cd ui && npx tsc --noEmit` passes
 - Manual test: Create a simple script or page that queries the database
 
-### [ ] Step: Tweet Display Components
+### [x] Step: Tweet Display Components
+<!-- chat-id: 88c60244-fa8e-4715-a9d8-4cc4b7237709 -->
 
 Build the core UI components for displaying tweets.
 
