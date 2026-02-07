@@ -74,7 +74,8 @@ Set up the `/ui` directory with Next.js 15, React 19, and Tailwind CSS 4.
 - `cd ui && npm run build` completes without errors
 - `cd ui && npx tsc --noEmit` passes
 
-### [ ] Step: Database Queries Module
+### [x] Step: Database Queries Module
+<!-- chat-id: 39f48df2-1594-4179-a272-abc8061f1b5e -->
 
 Implement the data access layer for fetching tweets and authors.
 
