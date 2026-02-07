@@ -97,7 +97,7 @@ export async function getTweets(
   // We first get the tweet IDs for the current page, then fetch full data
   const tweetsQuery = `
     WITH paginated_tweets AS (
-      SELECT DISTINCT t.tweet_id
+      SELECT DISTINCT t.tweet_id, t.${safeSortBy}
       FROM tweets t
       ${whereClause}
       ORDER BY t.${safeSortBy} ${safeSortOrder}
