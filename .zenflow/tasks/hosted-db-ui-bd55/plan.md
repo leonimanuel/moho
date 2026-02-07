@@ -110,7 +110,8 @@ Build the core UI components for displaying tweets.
 - `cd ui && npm run lint` passes
 - Components render correctly in browser (manual check with mock data)
 
-### [ ] Step: Main Page with Pagination
+### [x] Step: Main Page with Pagination
+<!-- chat-id: 8e3fc458-6873-42f9-b0de-87b6713b69b5 -->
 
 Implement the main tweets list page with server-side rendering and pagination.
 

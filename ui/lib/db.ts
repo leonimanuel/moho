@@ -1,4 +1,4 @@
-import postgres from "postgres";
+import postgres, { Sql } from "postgres";
 import type {
   TweetsQueryParams,
   TweetsQueryResult,
@@ -6,23 +6,34 @@ import type {
   TweetMedia,
 } from "./types";
 
-const connectionString = process.env.DATABASE_URL;
+// Lazy initialization of postgres client to support build-time without DATABASE_URL
+let sqlClient: Sql | null = null;
 
-if (!connectionString) {
-  throw new Error(
-    "DATABASE_URL environment variable is not set. " +
-      "Please set it in .env.local or your deployment environment."
-  );
+function getSql(): Sql {
+  if (sqlClient) {
+    return sqlClient;
+  }
+
+  const connectionString = process.env.DATABASE_URL;
+
+  if (!connectionString) {
+    throw new Error(
+      "DATABASE_URL environment variable is not set. " +
+        "Please set it in .env.local or your deployment environment."
+    );
+  }
+
+  // Create a postgres client with connection pooling suitable for serverless
+  // Neon requires SSL mode, which is specified in the connection string
+  sqlClient = postgres(connectionString, {
+    // Connection pool settings for serverless environment
+    max: 10, // Maximum connections in pool
+    idle_timeout: 20, // Close idle connections after 20 seconds
+    connect_timeout: 10, // Timeout for establishing new connections
+  });
+
+  return sqlClient;
 }
-
-// Create a postgres client with connection pooling suitable for serverless
-// Neon requires SSL mode, which is specified in the connection string
-export const sql = postgres(connectionString, {
-  // Connection pool settings for serverless environment
-  max: 10, // Maximum connections in pool
-  idle_timeout: 20, // Close idle connections after 20 seconds
-  connect_timeout: 10, // Timeout for establishing new connections
-});
 
 // Raw row type from database query
 interface TweetRow {
@@ -74,6 +85,8 @@ export async function getTweets(
   const validSortFields = ["created_at", "like_count", "retweet_count"];
   const safeSortBy = validSortFields.includes(sortBy) ? sortBy : "created_at";
   const safeSortOrder = sortOrder === "asc" ? "ASC" : "DESC";
+
+  const sql = getSql();
 
   // Get total count
   const countQuery = `SELECT COUNT(DISTINCT t.tweet_id) as count FROM tweets t ${whereClause}`;
@@ -154,6 +167,7 @@ export async function getTweets(
  * Used to populate the author filter dropdown.
  */
 export async function getAuthors(): Promise<string[]> {
+  const sql = getSql();
   const result = await sql`
     SELECT DISTINCT author_id
     FROM tweets
