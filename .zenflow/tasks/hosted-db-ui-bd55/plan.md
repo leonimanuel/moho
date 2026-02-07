@@ -129,7 +129,8 @@ Implement the main tweets list page with server-side rendering and pagination.
 - Pagination navigates between pages correctly
 - Loading state appears during navigation
 
-### [ ] Step: Search, Filter, and Sort Controls
+### [x] Step: Search, Filter, and Sort Controls
+<!-- chat-id: e8efcdb4-e104-41d5-acd4-f129ccb8e4dc -->
 
 Add interactive controls for finding specific content.
 
