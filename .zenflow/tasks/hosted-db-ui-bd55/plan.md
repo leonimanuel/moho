@@ -57,7 +57,8 @@ Save to `{@artifacts_path}/plan.md`.
 
 ## Implementation Steps
 
-### [ ] Step: Initialize Next.js Project
+### [x] Step: Initialize Next.js Project
+<!-- chat-id: 4a8002db-9d61-4701-bf37-a70320bc92d7 -->
 
 Set up the `/ui` directory with Next.js 15, React 19, and Tailwind CSS 4.
 

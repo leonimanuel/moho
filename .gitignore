@@ -4,3 +4,10 @@ build/
 .cache/
 *.log
 .env
+
+# Next.js
+.next/
+out/
+ui/.next/
+ui/node_modules/
+ui/.env.local
