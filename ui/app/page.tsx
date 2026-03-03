@@ -53,19 +53,19 @@ export default async function Home({ searchParams }: PageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-black">
-      <main className="mx-auto max-w-2xl bg-white shadow-sm dark:bg-zinc-950 lg:my-4 lg:rounded-lg lg:border lg:border-zinc-200 lg:dark:border-zinc-800">
-        <header className="sticky top-0 z-10 border-b border-zinc-200 bg-white/95 px-3 py-3 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-950/95 sm:px-4 lg:rounded-t-lg">
-          <h1 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 sm:text-xl">
+    <div className="min-h-screen bg-green-50 dark:bg-green-950">
+      <main className="mx-auto max-w-2xl bg-white shadow-sm dark:bg-green-950 lg:my-4 lg:rounded-lg lg:border lg:border-green-200 lg:dark:border-green-800">
+        <header className="sticky top-0 z-10 border-b border-green-200 bg-white/95 px-3 py-3 backdrop-blur-sm dark:border-green-800 dark:bg-green-950/95 sm:px-4 lg:rounded-t-lg">
+          <h1 className="text-lg font-bold text-green-900 dark:text-green-100 sm:text-xl">
             Tweets
           </h1>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">
+          <p className="text-sm text-green-600 dark:text-green-400">
             {total.toLocaleString()} {total === 1 ? "tweet" : "tweets"}
           </p>
         </header>
 
         {/* Search, Filter, and Sort Controls */}
-        <div className="border-b border-zinc-200 px-3 py-3 dark:border-zinc-800 sm:px-4">
+        <div className="border-b border-green-200 px-3 py-3 dark:border-green-800 sm:px-4">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
             <div className="flex-1">
               <Suspense fallback={null}>
@@ -87,9 +87,9 @@ export default async function Home({ searchParams }: PageProps) {
           </div>
         </div>
 
-        <div className="divide-y divide-zinc-200 dark:divide-zinc-800">
+        <div className="divide-y divide-green-200 dark:divide-green-800">
           {tweets.length === 0 ? (
-            <div className="px-4 py-12 text-center text-zinc-500 dark:text-zinc-400 sm:py-16">
+            <div className="px-4 py-12 text-center text-green-600 dark:text-green-400 sm:py-16">
               <p className="text-base sm:text-lg">No tweets found.</p>
               {search && (
                 <p className="mt-1 text-sm">

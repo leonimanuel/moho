@@ -54,50 +54,50 @@ export function Pagination({
 
   return (
     <nav
-      className="flex items-center justify-between border-t border-zinc-200 px-3 py-3 dark:border-zinc-800 sm:px-4"
+      className="flex items-center justify-between border-t border-green-200 px-3 py-3 dark:border-green-800 sm:px-4"
       aria-label="Pagination"
     >
       <div className="flex flex-1 items-center justify-between gap-2 sm:justify-start">
         {hasPrevious ? (
           <Link
             href={buildPageUrl(currentPage - 1, currentFilters)}
-            className="inline-flex items-center rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 active:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800 sm:px-4"
+            className="inline-flex items-center rounded-md border border-green-300 bg-white px-3 py-2 text-sm font-medium text-green-700 transition-colors hover:bg-green-50 active:bg-green-100 dark:border-green-700 dark:bg-green-900 dark:text-green-300 dark:hover:bg-green-800 sm:px-4"
           >
             Previous
           </Link>
         ) : (
-          <span className="inline-flex items-center rounded-md border border-zinc-200 bg-zinc-100 px-3 py-2 text-sm font-medium text-zinc-400 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-600 sm:px-4">
+          <span className="inline-flex items-center rounded-md border border-green-200 bg-green-100 px-3 py-2 text-sm font-medium text-green-400 dark:border-green-800 dark:bg-green-900 dark:text-green-600 sm:px-4">
             Previous
           </span>
         )}
 
         {/* Mobile page indicator */}
-        <span className="text-sm text-zinc-500 dark:text-zinc-400 sm:hidden">
+        <span className="text-sm text-green-600 dark:text-green-400 sm:hidden">
           {currentPage} / {totalPages}
         </span>
 
         {hasNext ? (
           <Link
             href={buildPageUrl(currentPage + 1, currentFilters)}
-            className="inline-flex items-center rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 active:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800 sm:px-4"
+            className="inline-flex items-center rounded-md border border-green-300 bg-white px-3 py-2 text-sm font-medium text-green-700 transition-colors hover:bg-green-50 active:bg-green-100 dark:border-green-700 dark:bg-green-900 dark:text-green-300 dark:hover:bg-green-800 sm:px-4"
           >
             Next
           </Link>
         ) : (
-          <span className="inline-flex items-center rounded-md border border-zinc-200 bg-zinc-100 px-3 py-2 text-sm font-medium text-zinc-400 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-600 sm:px-4">
+          <span className="inline-flex items-center rounded-md border border-green-200 bg-green-100 px-3 py-2 text-sm font-medium text-green-400 dark:border-green-800 dark:bg-green-900 dark:text-green-600 sm:px-4">
             Next
           </span>
         )}
       </div>
 
       <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-end">
-        <p className="text-sm text-zinc-500 dark:text-zinc-400">
+        <p className="text-sm text-green-600 dark:text-green-400">
           Page{" "}
-          <span className="font-medium text-zinc-700 dark:text-zinc-300">
+          <span className="font-medium text-green-800 dark:text-green-200">
             {currentPage}
           </span>{" "}
           of{" "}
-          <span className="font-medium text-zinc-700 dark:text-zinc-300">
+          <span className="font-medium text-green-800 dark:text-green-200">
             {totalPages}
           </span>
         </p>

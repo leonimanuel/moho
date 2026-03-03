@@ -42,23 +42,23 @@ export function TweetCard({ tweet }: TweetCardProps) {
   const formattedDate = formatTweetDate(tweet.created_at);
 
   return (
-    <article className="border-b border-zinc-200 px-3 py-3 dark:border-zinc-800 sm:px-4 sm:py-4">
+    <article className="border-b border-green-200 px-3 py-3 dark:border-green-800 sm:px-4 sm:py-4">
       <div className="flex flex-col gap-2 sm:gap-3">
         {/* Header: Author and Date */}
         <div className="flex items-center justify-between gap-2">
-          <span className="truncate font-medium text-zinc-900 dark:text-zinc-100">
+          <span className="truncate font-medium text-green-900 dark:text-green-100">
             @{tweet.author_id}
           </span>
           <time
             dateTime={new Date(tweet.created_at).toISOString()}
-            className="shrink-0 text-sm text-zinc-500 dark:text-zinc-400"
+            className="shrink-0 text-sm text-green-600 dark:text-green-400"
           >
             {formattedDate}
           </time>
         </div>
 
         {/* Tweet Text */}
-        <p className="whitespace-pre-wrap break-words text-[15px] leading-relaxed text-zinc-800 dark:text-zinc-200 sm:text-base">
+        <p className="whitespace-pre-wrap break-words text-[15px] leading-relaxed text-green-800 dark:text-green-200 sm:text-base">
           {tweet.text}
         </p>
 
