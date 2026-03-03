@@ -28,7 +28,7 @@ interface MetricItemProps {
 function MetricItem({ icon, count, label }: MetricItemProps) {
   return (
     <div
-      className="flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400 sm:text-sm"
+      className="flex items-center gap-1 text-xs text-blue-500 dark:text-blue-400 sm:text-sm"
       title={`${count.toLocaleString()} ${label}`}
     >
       {icon}

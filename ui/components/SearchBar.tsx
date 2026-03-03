@@ -56,11 +56,11 @@ export function SearchBar({ defaultValue = "" }: SearchBarProps) {
         value={value}
         onChange={(e) => setValue(e.target.value)}
         placeholder="Search tweets..."
-        className="w-full rounded-md border border-zinc-300 bg-white px-4 py-2 pl-10 text-base text-zinc-900 placeholder-zinc-500 transition-colors focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder-zinc-400 dark:focus:border-blue-400 dark:focus:ring-blue-400 sm:text-sm"
+        className="w-full rounded-md border border-blue-300 bg-white px-4 py-2 pl-10 text-base text-blue-900 placeholder-blue-400 transition-colors focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-blue-700 dark:bg-blue-900 dark:text-blue-100 dark:placeholder-blue-400 dark:focus:border-blue-400 dark:focus:ring-blue-400 sm:text-sm"
         aria-label="Search tweets"
       />
       <svg
-        className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400"
+        className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-blue-400"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -75,7 +75,7 @@ export function SearchBar({ defaultValue = "" }: SearchBarProps) {
       </svg>
       {isPending && (
         <div className="absolute right-3 top-1/2 -translate-y-1/2">
-          <div className="h-4 w-4 animate-spin rounded-full border-2 border-zinc-300 border-t-blue-500" />
+          <div className="h-4 w-4 animate-spin rounded-full border-2 border-blue-200 border-t-blue-500" />
         </div>
       )}
     </div>
