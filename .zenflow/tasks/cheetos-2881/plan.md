@@ -24,6 +24,7 @@ If you are blocked and need user clarification, mark the current step with `[!]`
 ## Workflow Steps
 
 ### [ ] Step: Technical Specification
+<!-- chat-id: 8cb0ea06-a633-40d6-bb34-a3b97b253124 -->
 
 Assess the task's difficulty, as underestimating it leads to poor outcomes.
 - easy: Straightforward implementation, trivial bug fix or feature
