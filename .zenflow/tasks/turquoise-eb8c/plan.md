@@ -19,6 +19,7 @@ Do not make assumptions on important decisions — get clarification first.
 ## Workflow Steps
 
 ### [ ] Step: Implementation
+<!-- chat-id: 1efd42d8-4caa-4894-b55d-fb4ba177a05a -->
 - If task is small and clear -> jump directly to implementation, without any additional steps or planning
 - If the task is complex enough, plan how you want to address it. Plan can include requirements, tech specification and key implementation steps.
 - Break down the work into concrete tasks (incrementable, testable milestones). Rule of thumb for step size: each step should represent a coherent unit of work (e.g., implement a component, add an API endpoint, write tests for a module). Avoid steps that are too granular (single function).
