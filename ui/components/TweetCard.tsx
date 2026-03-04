@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { TweetWithMedia } from "@/lib/types";
 import { TweetMetrics } from "./TweetMetrics";
 import { MediaGallery } from "./MediaGallery";
@@ -45,9 +46,11 @@ export function TweetCard({ tweet }: TweetCardProps) {
     <article className="border-b border-zinc-200 px-3 py-3 dark:border-zinc-800 sm:px-4 sm:py-4">
       <div className="flex gap-3">
         {/* Avatar */}
-        <img
+        <Image
           src={`https://unavatar.io/twitter/${tweet.author_id}`}
           alt={tweet.author_id}
+          width={40}
+          height={40}
           className="h-10 w-10 shrink-0 rounded-full bg-zinc-200 dark:bg-zinc-800"
         />
         <div className="flex flex-col gap-2 sm:gap-3 min-w-0 flex-1">

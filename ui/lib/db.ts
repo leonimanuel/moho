@@ -110,7 +110,7 @@ export async function getTweets(
 ): Promise<TweetsQueryResult> {
   const { search, author, sortBy, sortOrder, page, pageSize } = params;
 
-  let filtered = MOCK_TWEETS.filter((t) => {
+  const filtered = MOCK_TWEETS.filter((t) => {
     if (search && !t.text.toLowerCase().includes(search.toLowerCase())) return false;
     if (author && t.author_id !== author) return false;
     return true;

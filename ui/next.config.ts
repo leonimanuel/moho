@@ -2,7 +2,12 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["unavatar.io"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "unavatar.io",
+      },
+    ],
   },
 };
 
